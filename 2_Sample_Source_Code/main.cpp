@@ -70,11 +70,11 @@ void AppMain() {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
     window = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y, "test window",NULL, NULL);
     if(!window)
-        throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 4.3?");
+        throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 4.2?");
 
     // GLFW settings
     glfwMakeContextCurrent(window);
@@ -89,8 +89,8 @@ void AppMain() {
     std::cout << "Vendor: " << glGetString(GL_VENDOR) << std::endl;
     std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
     // make sure OpenGL version 3.2 API is available
-    if(!GLEW_VERSION_3_2)
-        throw std::runtime_error("OpenGL 3.2 API is not available.");
+    if(!GLEW_VERSION_4_2)
+        throw std::runtime_error("OpenGL 4.2 API is not available.");
 
     // create buffer and fill it with the points of the triangle
 
