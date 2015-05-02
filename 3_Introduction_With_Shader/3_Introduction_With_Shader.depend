@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1424364263 source:e:\blogsourcecode\modern opengl\modern-opengl-series\3_introduction_with_shader\main.cpp
+1428839763 source:e:\blogsourcecode\modern opengl\modern-opengl-series\3_introduction_with_shader\main.cpp
 	<windows.h>
 	<GL/glew.h>
 	<GL/glfw3.h>

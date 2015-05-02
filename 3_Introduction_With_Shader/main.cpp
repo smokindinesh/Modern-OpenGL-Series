@@ -14,7 +14,7 @@
 GLuint gVAO = 0;
 GLuint gVBO = 0;
 GLuint programId;
-GLFWwindow* window = NULL;
+GLFWwindow* MainWindow = NULL;
 const glm::vec2 SCREEN_SIZE(800, 600);
 GLuint loadShader(char *shaderFile, GLenum type)
 {
@@ -96,7 +96,7 @@ static void LoadTriangle() {
 }
 
 // draws a single frame
-static void Render() {
+static void Render(GLFWwindow* MainWindow) {
     // clear everything
     glClearColor(0, 0, 0, 1); // black
     glClear(GL_COLOR_BUFFER_BIT);
@@ -107,7 +107,7 @@ static void Render() {
     // unbind the VAO
     glBindVertexArray(0);
     // swap the display buffers (displays what was just drawn)
-    glfwSwapBuffers(window);
+    glfwSwapBuffers(MainWindow);
 }
 
 // the program starts here
@@ -120,14 +120,14 @@ void MainAppFunc() {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
-    window = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y,"Intro OpenGL with Shader",NULL,NULL);
-    if(!window)
-        throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 3.2?");
+    MainWindow = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y,"Intro OpenGL with Shader",NULL,NULL);
+    if(!MainWindow)
+        throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 4.2?");
 
     // GLFW settings
-    glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(MainWindow);
     // initialise GLEW
     glewExperimental = GL_TRUE; //stops glew crashing on OSX :-/
     if(glewInit() != GLEW_OK)
@@ -140,8 +140,8 @@ void MainAppFunc() {
     std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
 
     // make sure OpenGL version 3.2 API is available
-    if(!GLEW_VERSION_4_3)
-        throw std::runtime_error("OpenGL 4.3 API is not available.");
+    if(!GLEW_VERSION_4_2)
+        throw std::runtime_error("OpenGL 4.2 API is not available.");
 
     // load vertex and fragment shaders into opengl
     //LoadShaders();
@@ -154,12 +154,13 @@ void MainAppFunc() {
     LoadTriangle();
 
     // run while the window is open
-    while(glfwGetWindowAttrib(window,GLFW_FOCUSED)){
+    //while(glfwGetWindowAttrib(window,GLFW_FOCUSED)){
+    while(!glfwWindowShouldClose(MainWindow)){
 
         // process pending events
         glfwPollEvents();
         // draw one frame
-        Render();
+        Render(MainWindow);
     }
 
     // clean up and exit
