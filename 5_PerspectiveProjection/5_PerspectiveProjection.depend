@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1430640054 source:e:\blogsourcecode\modern opengl\modern-opengl-series\5_perspectiveprojection\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<cassert>
+	<iostream>
+	<fstream>
+	<stdexcept>
+	<cmath>
+
