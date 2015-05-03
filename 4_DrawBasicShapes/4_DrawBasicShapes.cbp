@@ -32,7 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="fragment.glsl" />
 		<Unit filename="main.cpp" />
+		<Unit filename="vertex.glsl" />
 		<Extensions>
 			<code_completion />
 			<envvars />

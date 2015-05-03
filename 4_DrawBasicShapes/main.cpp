@@ -146,7 +146,7 @@ void MainAppFunc() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
-    MainWindow = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y,"Intro OpenGL with Shader",NULL,NULL);
+    MainWindow = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y,"Draw Basic Shapes",NULL,NULL);
     if(!MainWindow)
         throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 4.2?");
 
