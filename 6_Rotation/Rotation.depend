@@ -1,0 +1,80 @@
+# depslib dependency file v1.0
+1369805810 source:d:\modernopengl\withoop\rotation\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+
+1369676797 d:\modernopengl\withoop\rotation\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754705 d:\modernopengl\withoop\rotation\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1369673960 source:d:\modernopengl\withoop\rotation\src\program.cpp
+	"../include/Program.h"
+
+1369754680 source:d:\modernopengl\withoop\rotation\src\shader.cpp
+	"../include/Shader.h"
+
+1369805810 source:c:\users\dinesh\downloads\rotation\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+
+1369676797 c:\users\dinesh\downloads\rotation\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754705 c:\users\dinesh\downloads\rotation\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1369673960 source:c:\users\dinesh\downloads\rotation\src\program.cpp
+	"../include/Program.h"
+
+1369754680 source:c:\users\dinesh\downloads\rotation\src\shader.cpp
+	"../include/Shader.h"
+
+1369673960 source:e:\blogsourcecode\modern opengl\modern-opengl-series\6_rotation\src\program.cpp
+	"../include/Program.h"
+
+1369676797 e:\blogsourcecode\modern opengl\modern-opengl-series\6_rotation\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754680 source:e:\blogsourcecode\modern opengl\modern-opengl-series\6_rotation\src\shader.cpp
+	"../include/Shader.h"
+
+1369754705 e:\blogsourcecode\modern opengl\modern-opengl-series\6_rotation\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
