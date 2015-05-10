@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1369754680 source:d:\modernopengl\withoop\color\src\shader.cpp
+	"../include/Shader.h"
+
+1369754705 d:\modernopengl\withoop\color\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1370182608 source:d:\modernopengl\withoop\color\src\program.cpp
+	"../include/Program.h"
+
+1369676797 d:\modernopengl\withoop\color\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1370182608 source:e:\blogsourcecode\modern opengl\modern-opengl-series\7_color\src\program.cpp
+	"../include/Program.h"
+
+1369676796 e:\blogsourcecode\modern opengl\modern-opengl-series\7_color\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754680 source:e:\blogsourcecode\modern opengl\modern-opengl-series\7_color\src\shader.cpp
+	"../include/Shader.h"
+
+1369754704 e:\blogsourcecode\modern opengl\modern-opengl-series\7_color\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431233665 source:e:\blogsourcecode\modern opengl\modern-opengl-series\7_color\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+
