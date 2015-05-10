@@ -1,0 +1,185 @@
+# depslib dependency file v1.0
+1371791755 source:c:\users\dinesh\desktop\cube\src\loadbmp.cpp
+	"../include/loadBMP.h"
+	<assert.h>
+	<fstream>
+
+1371655842 c:\users\dinesh\desktop\cube\include\loadbmp.h
+
+1370182608 source:c:\users\dinesh\desktop\cube\src\program.cpp
+	"../include/Program.h"
+
+1369676797 c:\users\dinesh\desktop\cube\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754680 source:c:\users\dinesh\desktop\cube\src\shader.cpp
+	"../include/Shader.h"
+
+1369754705 c:\users\dinesh\desktop\cube\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1374328188 source:c:\users\dinesh\desktop\objloader\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+	"include/loadBMP.h"
+	"include/Mesh.h"
+
+1374327925 c:\users\dinesh\desktop\objloader\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1373545305 c:\users\dinesh\desktop\objloader\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1373545305 c:\users\dinesh\desktop\objloader\include\loadbmp.h
+
+1373545305 source:c:\users\dinesh\desktop\objloader\src\loadbmp.cpp
+	"../include/loadBMP.h"
+	<assert.h>
+	<fstream>
+
+1373545305 source:c:\users\dinesh\desktop\objloader\src\program.cpp
+	"../include/Program.h"
+
+1373545305 source:c:\users\dinesh\desktop\objloader\src\shader.cpp
+	"../include/Shader.h"
+
+1374328019 c:\users\dinesh\desktop\objloader\include\mesh.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<vector>
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<cstdlib>
+	<GL/glfw.h>
+
+1374315724 source:c:\users\dinesh\desktop\objloader\src\mesh.cpp
+	"../include/Mesh.h"
+
+1373545305 source:d:\modernopengl\withoop\completed\objloader\src\loadbmp.cpp
+	"../include/loadBMP.h"
+	<assert.h>
+	<fstream>
+
+1373545305 d:\modernopengl\withoop\completed\objloader\include\loadbmp.h
+
+1374315724 source:d:\modernopengl\withoop\completed\objloader\src\mesh.cpp
+	"../include/Mesh.h"
+
+1374328019 d:\modernopengl\withoop\completed\objloader\include\mesh.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<vector>
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<cstdlib>
+	<GL/glfw.h>
+
+1373545305 source:d:\modernopengl\withoop\completed\objloader\src\program.cpp
+	"../include/Program.h"
+
+1374327925 d:\modernopengl\withoop\completed\objloader\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1373545305 source:d:\modernopengl\withoop\completed\objloader\src\shader.cpp
+	"../include/Shader.h"
+
+1373545305 d:\modernopengl\withoop\completed\objloader\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1374885870 source:d:\modernopengl\withoop\completed\objloader\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+	"include/loadBMP.h"
+	"include/Mesh.h"
+
+1373545305 source:c:\users\dinesh\downloads\9_objloader\src\program.cpp
+	"../include/Program.h"
+
+1431243777 c:\users\dinesh\downloads\9_objloader\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1373545305 source:c:\users\dinesh\downloads\9_objloader\src\shader.cpp
+	"../include/Shader.h"
+
+1431243781 c:\users\dinesh\downloads\9_objloader\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431243680 source:c:\users\dinesh\downloads\9_objloader\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+	"include/loadBMP.h"
+	"include/Mesh.h"
+
+1373545305 c:\users\dinesh\downloads\9_objloader\include\loadbmp.h
+
+1431243818 c:\users\dinesh\downloads\9_objloader\include\mesh.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<vector>
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<cstdlib>
+	<GL/glew.h>
+
+1431243581 source:c:\users\dinesh\downloads\9_objloader\src\mesh.cpp
+	"../include/Mesh.h"
+
