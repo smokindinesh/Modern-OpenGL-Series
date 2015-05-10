@@ -15,7 +15,8 @@
 
 // program classes
 #include "include/Program.h"
-#include"include/Shader.h"
+#include "include/Shader.h"
+#include "include/loadBMP.h"
 // screen size
 glm::vec2 SCREEN_SIZE(800, 600);
 
@@ -24,6 +25,7 @@ Program* program = NULL;
 Shader shader;
 GLuint gVAO = 0;
 GLuint gVBO = 0;
+GLuint ColorBufferId=0;
 GLfloat rotationAngle=0;
 GLFWwindow* MainWindow = NULL;
 glm::mat4 projectionMatrix; // Store the projection matrix
@@ -56,6 +58,38 @@ void Update(float secondsElapsed) {
     rotationAngle += secondsElapsed * degreesPerSecond;
     while(rotationAngle > 360.0f) rotationAngle -= 360.0f;
 }
+
+//Makes the image into a texture, and returns the id of the texture
+GLuint loadTexture(Image* image) {
+	GLuint textureId;
+	glGenTextures(1, &textureId); //Make room for our texture
+	glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	//Map the image to the texture
+	glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+				 0,                            //0 for now
+				 GL_RGB,                       //Format OpenGL uses for image
+				 image->width, image->height,  //Width and height
+				 0,                            //The border of the image
+				 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+				                   //as unsigned numbers
+				 image->pixels);               //The actual pixel data
+	return textureId; //Returns the id of the texture
+}
+
+GLuint _textureId; //The id of the texture
+
+static void LoadTextureMaping()
+{
+    Image* image = loadBMP("chessBoard.bmp");
+	_textureId = loadTexture(image);
+	delete image;
+}
+
 // loads the vertex shader and fragment shader, and links them to make the global program
 static void LoadShaders() {
     std::vector<GLuint> shaders;
@@ -77,19 +111,22 @@ static void LoadTriangle() {
 
     // Put the three triangle verticies into the VBO
     GLfloat vertexData[] = {
-        //  X     Y     Z   R    G     B    A
-         0.0f, 0.8f, 0.0f,1.0f,0.0f,0.0f,1.0f,
-        -0.8f,-0.8f, 0.0f,0.0f,1.0f,0.0f,1.0f,
-         0.8f,-0.8f, 0.0f,0.0f,0.0f,1.0f,1.0f,
+        //  X     Y     Z     U     V
+         -0.5f, -0.5f, 0.0f,  0.0f, 0.0f,
+         -0.5f,0.5f, 0.0f,  0.0f, 1.0f,
+         0.5f,-0.5f, 0.0f,  1.0f, 0.0f,
+         0.5f,0.5f, 0.0f,  1.0f, 1.0f,
+
     };
 
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
     // connect the xyz to the "vPosition" attribute of the vertex shader
     glEnableVertexAttribArray(program->attrib("vPosition"));
-    glVertexAttribPointer(program->attrib("vPosition"), 3, GL_FLOAT, GL_FALSE, 7*sizeof(GLfloat), NULL);
-    // connect the RGBA to the "vColor" attribute of the vertex shader and passed to the fragment shader
-    glVertexAttribPointer(program->attrib("vColor"), 4, GL_FLOAT, GL_FALSE, 7*sizeof(GLfloat),(const GLvoid*)(3*sizeof(GLfloat)));
-    glEnableVertexAttribArray(program->attrib("vColor"));
+    glVertexAttribPointer(program->attrib("vPosition"), 3, GL_FLOAT, GL_FALSE,5*sizeof(GLfloat), NULL);
+
+
+    glVertexAttribPointer(program->attrib("vertTextCoord"), 2, GL_FLOAT, GL_TRUE, 5*sizeof(GLfloat),(const GLvoid*)(3*sizeof(GLfloat)));
+    glEnableVertexAttribArray(program->attrib("vertTextCoord"));
 
 
     // unbind the VBO and VAO
@@ -99,7 +136,7 @@ static void LoadTriangle() {
 
 
 // draws a single frame
-static void Render(GLFWwindow* window){
+static void Render(GLFWwindow* window) {
     // clear everything
     glClearColor(0, 0, 0, 1); // black
     glClear(GL_COLOR_BUFFER_BIT);
@@ -111,30 +148,36 @@ static void Render(GLFWwindow* window){
     projectionMatrix = glm::perspective(45.0f, (float)SCREEN_SIZE.x / (float)SCREEN_SIZE.y, 1.0f, 200.0f);
     glUniformMatrix4fv(program->uniform("prespective"),1,GL_FALSE,glm::value_ptr(projectionMatrix));
     // Camera matrix
-    viewMatrix = glm::lookAt(
-                 glm::vec3(0,0,1), // Camera is at (4,3,3), in World Space
-                 glm::vec3(0,0,0), // and looks at the origin
-                 glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
-                 );
+    viewMatrix       = glm::lookAt(
+                            glm::vec3(0,0,1), // Camera is at (4,3,3), in World Space
+                            glm::vec3(0,0,0), // and looks at the origin
+                            glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
+                            );
 
     glUniformMatrix4fv(program->uniform("camera"),1,GL_FALSE,glm::value_ptr(viewMatrix));
     // Model matrix : an identity matrix (model will be at the origin)
     modelMatrix= glm::mat4(1.0f);// Changes for each model !
-    modelMatrix= glm::translate(modelMatrix,glm::vec3(0,0,-5));//translating to negative z-axis
+    modelMatrix= glm::translate(modelMatrix,glm::vec3(0,0,-3));//translating to negative z-axis
     modelMatrix= glm::scale(modelMatrix,glm::vec3(2,2,2));//scalling by 2x
     modelMatrix= glm::rotate(modelMatrix, -rotationAngle, glm::vec3(0,0,1));//rotating in clockwise direction
 
     glUniformMatrix4fv(program->uniform("model"),1,GL_FALSE,glm::value_ptr(modelMatrix));
 
+    // bind the texture and set the "tex" uniform in the fragment shader
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _textureId);
+    glUniform1i(program->uniform("tex"),0); //set to 0 because the texture is bound to GL_TEXTURE0
+
     // bind the VAO (the triangle)
     glBindVertexArray(gVAO);
 
     // draw the VAO
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
     // unbind the VAO
     glBindVertexArray(0);
-
+    //unbind the texture
+    //glBindTexture(GL_TEXTURE_2D,0);
     // unbind the program
     glUseProgram(0);
 
@@ -155,7 +198,7 @@ void MainApplication() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
-    MainWindow = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y,"Color",NULL,NULL);
+    MainWindow = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y,"Texture Mapping",NULL,NULL);
     if(!MainWindow)
         throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 4.2?");
 
@@ -181,7 +224,8 @@ void MainApplication() {
 
     // load vertex and fragment shaders into opengl
     LoadShaders();
-
+    //load texture and upload to opengl
+    LoadTextureMaping();
     // create buffer and fill it with the points of the triangle
     LoadTriangle();
 

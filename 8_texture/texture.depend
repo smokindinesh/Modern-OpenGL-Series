@@ -1,0 +1,79 @@
+# depslib dependency file v1.0
+1370182608 source:d:\modernopengl\withoop\texture\src\program.cpp
+	"../include/Program.h"
+
+1369676797 d:\modernopengl\withoop\texture\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754680 source:d:\modernopengl\withoop\texture\src\shader.cpp
+	"../include/Shader.h"
+
+1369754705 d:\modernopengl\withoop\texture\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1371720509 source:d:\modernopengl\withoop\texture\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+	"include/loadBMP.h"
+
+1371655920 source:d:\modernopengl\withoop\texture\src\loadbmp.cpp
+	"../include/loadBMP.h"
+	<assert.h>
+	<fstream>
+
+1371655842 d:\modernopengl\withoop\texture\include\loadbmp.h
+
+1371655920 source:c:\users\dinesh\downloads\texture\src\loadbmp.cpp
+	"../include/loadBMP.h"
+	<assert.h>
+	<fstream>
+
+1371655842 c:\users\dinesh\downloads\texture\include\loadbmp.h
+
+1370182608 source:c:\users\dinesh\downloads\texture\src\program.cpp
+	"../include/Program.h"
+
+1369676796 c:\users\dinesh\downloads\texture\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754680 source:c:\users\dinesh\downloads\texture\src\shader.cpp
+	"../include/Shader.h"
+
+1369754704 c:\users\dinesh\downloads\texture\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431236976 source:c:\users\dinesh\downloads\texture\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+	"include/loadBMP.h"
+
