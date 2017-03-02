@@ -39,6 +39,7 @@
 		<Unit filename="include/Mesh.h" />
 		<Unit filename="include/Program.h" />
 		<Unit filename="include/Shader.h" />
+		<Unit filename="include/meshInfo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="monkey.mtl" />
 		<Unit filename="monkey.obj" />

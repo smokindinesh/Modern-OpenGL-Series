@@ -56,19 +56,21 @@ void handleResize(GLFWwindow* window,int width,int height)
 // update the scene based on the time elapsed since last update
 void Update(float secondsElapsed)
 {
-    const GLfloat degreesPerSecond = 1.0f;
+    const GLfloat degreesPerSecond = 10.0f;
     rotationAngle += secondsElapsed * degreesPerSecond;
     while(rotationAngle > 360.0f) rotationAngle -= 360.0f;
 }
 
 //Declare the Mesh object and varialble for vertexData
 Mesh cube;
-std::vector<glm::vec3> vertexData;
+//std::vector<MeshVert> meshData;
+std::vector<MeshVertTexNorm> meshVertTexNorm;
 static void Load3DModel()
 {
 
-    cube.LoadObjModel("monkey.obj");//load 3D model in obj formate
-    vertexData=cube.returnMesh();//return the vertex data of mesh
+    cube.LoadObjModel("cube.obj");//load 3D model in obj formate
+
+    meshVertTexNorm=cube.returnMeshVertTexNorm();//return the vertex data of mesh
 
 }
 
@@ -93,10 +95,11 @@ static void LoadTriangle()
     glGenBuffers(1, &gVBO);
     glBindBuffer(GL_ARRAY_BUFFER, gVBO);
 
-    glBufferData(GL_ARRAY_BUFFER, vertexData.size()*sizeof(glm::vec3), vertexData.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, meshVertTexNorm.size()*(sizeof(glm::vec3)+sizeof(glm::vec2)+sizeof(glm::vec3)), &meshVertTexNorm.data()->vertCord[0], GL_STATIC_DRAW);
+
     // connect the xyz to the "vPosition" attribute of the vertex shader
     glEnableVertexAttribArray(program->attrib("vPosition"));
-    glVertexAttribPointer(program->attrib("vPosition"), 3, GL_FLOAT, GL_FALSE,0, NULL);
+    glVertexAttribPointer(program->attrib("vPosition"), 3, GL_FLOAT, GL_FALSE,sizeof(glm::vec3)+sizeof(glm::vec2)+sizeof(glm::vec3), NULL);
 
 
     // unbind the VBO and VAO
@@ -138,7 +141,7 @@ static void Render(GLFWwindow* window)
     glBindVertexArray(gVAO);
 
     // draw the VAO
-    glDrawArrays(GL_TRIANGLES, 0, vertexData.size());
+    glDrawArrays(GL_TRIANGLES, 0, meshVertTexNorm.size());
 
     // unbind the VAO
     glBindVertexArray(0);
