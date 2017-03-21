@@ -136,23 +136,14 @@ static void LoadTriangle() {
     GLfloat vertexData[] = {
         //  X     Y     Z
 
-        //Pentagon
-        0.5f, 0.5f, -5.0f,
-        1.5f, 0.5f, -5.0f,
-        0.5f, 1.0f, -5.0f,
+        //Square
+        -0.25f, 0.25f, 1.0f,
+        -0.25f, -0.25f, 1.0f,
+        0.25f, -0.25f, 1.0f,
 
-        0.5f, 1.0f, -5.0f,
-        1.5f, 0.5f, -5.0f,
-        1.5f, 1.0f, -5.0f,
-
-        0.5f, 1.0f, -5.0f,
-        1.5f, 1.0f, -5.0f,
-        1.0f, 1.5f, -5.0f,
-
-        //Triangle
-        -0.5f, 0.5f, -5.0f,
-        -1.0f, 1.5f, -5.0f,
-        -1.5f, 0.5f, -5.0f,
+        0.25f, 0.25f, 1.0f,
+        -0.25f, 0.25f, 1.0f,
+        0.25f, -0.25f, 1.0f,
     };
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
 

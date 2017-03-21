@@ -116,3 +116,42 @@
 1369754680 source:e:\blogsourcecode\modern opengl\modern-opengl-series\8_texture\src\shader.cpp
 	"../include/Shader.h"
 
+1431236976 source:e:\blogsourcecode\modern opengl\modern-opengl-series\10_lighting\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+	"include/loadBMP.h"
+
+1369676796 e:\blogsourcecode\modern opengl\modern-opengl-series\10_lighting\include\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1369754704 e:\blogsourcecode\modern opengl\modern-opengl-series\10_lighting\include\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1371655842 e:\blogsourcecode\modern opengl\modern-opengl-series\10_lighting\include\loadbmp.h
+
+1371655920 source:e:\blogsourcecode\modern opengl\modern-opengl-series\10_lighting\src\loadbmp.cpp
+	"../include/loadBMP.h"
+	<assert.h>
+	<fstream>
+
+1370182608 source:e:\blogsourcecode\modern opengl\modern-opengl-series\10_lighting\src\program.cpp
+	"../include/Program.h"
+
+1369754680 source:e:\blogsourcecode\modern opengl\modern-opengl-series\10_lighting\src\shader.cpp
+	"../include/Shader.h"
+

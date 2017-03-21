@@ -78,3 +78,17 @@
 	<fstream>
 	<stdexcept>
 
+1488444545 source:e:\blogsourcecode\modern opengl\modern-opengl-series\6_rotation\main.cpp
+	<windows.h>
+	<GL/glew.h>
+	<GL/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<cassert>
+	<iostream>
+	<stdexcept>
+	<cmath>
+	"include/Program.h"
+	"include/Shader.h"
+
